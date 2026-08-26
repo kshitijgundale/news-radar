@@ -10,7 +10,7 @@
     "dev:mobile": "npm run start --workspace @radar/mobile",
     "scheduler:local": "./scripts/run-local-scheduler.sh",
     "lint": "eslint .",
-    "typecheck": "npm run typecheck --workspaces --if-present",
+    "typecheck": "tsc -p tsconfig.json && npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "check": "npm run lint && npm run typecheck && npm test"
   },
