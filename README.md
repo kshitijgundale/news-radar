@@ -42,8 +42,11 @@ configuration.
 
 1. Create a Neon project and copy its **pooled** connection string.
 2. Import this repository into Vercel. Leave the Root Directory at the repository
-   root and let Vercel detect Hono. The committed `vercel.json` supplies the web
-   build command and routing.
+   root and let Vercel detect Hono. The committed `vercel.json` supplies routing.
+   The checked-in `public/` directory contains the Expo web export so Vercel can
+   package it alongside the Hono function without a build-time asset race. After
+   changing the UI, run `npm run build:vercel` and commit the updated `public/`
+   files before deploying.
 3. Add every backend variable from `.env.example` to the Vercel Production
    environment. Set `DATABASE_URL` to the Neon pooled connection string and use
    a random `SCHEDULER_SECRET` of at least 24 characters.
