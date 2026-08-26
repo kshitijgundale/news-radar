@@ -69,9 +69,9 @@ export class TrackerRepository {
 
   async setPollInterval(id: string, pollIntervalMinutes: number): Promise<Tracker | null> {
     const result = await this.database.query<TrackerRow>(
-      `UPDATE trackers SET poll_interval_minutes = $2, updated_at = now(),
+      `UPDATE trackers SET poll_interval_minutes = $2::integer, updated_at = now(),
          next_check_at = CASE WHEN status = 'active'
-           THEN now() + ($2 * interval '1 minute') ELSE next_check_at END
+           THEN now() + ($2::integer * interval '1 minute') ELSE next_check_at END
        WHERE id = $1 RETURNING ${trackerColumns}`,
       [id, pollIntervalMinutes],
     );
