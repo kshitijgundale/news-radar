@@ -33,14 +33,17 @@ Run one scheduler batch with `npm run scheduler:local`. For unattended local tes
 
 ### Demo deployment: Vercel + Neon
 
-The lowest-maintenance demo setup is a Vercel Hobby project backed by a Neon
+The lowest-maintenance demo setup is one Vercel Hobby project backed by a Neon
 Free Postgres database. Both services scale to zero while idle. The repository
-root exports the Hono API in `index.ts`, and `vercel.json` gives tracker runs the
-Hobby plan's five-minute maximum duration.
+root exports the Hono API in `index.ts`, builds the Expo web UI into Vercel's
+static assets, and gives tracker runs the Hobby plan's five-minute maximum
+duration. The UI and API share one origin, so deployed web requests need no CORS
+configuration.
 
 1. Create a Neon project and copy its **pooled** connection string.
 2. Import this repository into Vercel. Leave the Root Directory at the repository
-   root and let Vercel detect Hono; do not set a build or output command.
+   root and let Vercel detect Hono. The committed `vercel.json` supplies the web
+   build command and routing.
 3. Add every backend variable from `.env.example` to the Vercel Production
    environment. Set `DATABASE_URL` to the Neon pooled connection string and use
    a random `SCHEDULER_SECRET` of at least 24 characters.
@@ -49,8 +52,8 @@ Hobby plan's five-minute maximum duration.
 5. Set `RADAR_SCHEDULER_URL` to the Vercel production URL and
    `RADAR_SCHEDULER_SECRET` to the same scheduler secret. Run **Run due Radar
    trackers** manually when demo data should be refreshed.
-6. Set the Expo/EAS `EXPO_PUBLIC_API_URL` to the Vercel production URL and
-   rebuild the mobile app.
+6. The deployed web UI uses the same origin automatically. For native Expo/EAS
+   builds, set `EXPO_PUBLIC_API_URL` to the Vercel production URL and rebuild.
 
 The scheduler workflow is deliberately manual-only for the demo, so it does not
 wake the API and database while they would otherwise be idle. Before presenting,

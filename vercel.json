@@ -1,8 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build:vercel",
   "functions": {
     "index.ts": {
       "maxDuration": 300
     }
-  }
+  },
+  "rewrites": [
+    { "source": "/new", "destination": "/index.html" },
+    { "source": "/tracker/:path*", "destination": "/index.html" }
+  ]
 }

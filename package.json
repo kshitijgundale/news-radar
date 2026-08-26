@@ -8,6 +8,7 @@
     "dev": "npm run dev --workspace @radar/server",
     "dev:server": "npm run dev --workspace @radar/server",
     "dev:mobile": "npm run start --workspace @radar/mobile",
+    "build:vercel": "npm run build:web --workspace @radar/mobile -- --output-dir ../../public",
     "scheduler:local": "./scripts/run-local-scheduler.sh",
     "lint": "eslint .",
     "typecheck": "tsc -p tsconfig.json && npm run typecheck --workspaces --if-present",
