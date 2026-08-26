@@ -8,6 +8,11 @@ import { env } from "./lib/env.js";
 
 export const app = new Hono();
 
+// Vercel's Hono dispatcher owns the bare root before static rewrites run.
+// Redirect it to the committed Expo entry document; all other UI routes are
+// handled by the SPA rewrites in vercel.json.
+app.get("/", (context) => context.redirect("/index.html"));
+
 const configuredOrigins = new Set(
   env.CORS_ORIGINS.split(",").map((origin) => origin.trim()).filter(Boolean),
 );
