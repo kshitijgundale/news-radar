@@ -8,6 +8,13 @@ import { env } from "./lib/env.js";
 
 export const app = new Hono();
 
+app.get("/", (context) => context.json({
+  service: "radar-server",
+  status: "ok" as const,
+  health: "/health",
+  api: "/api/trackers",
+}));
+
 const configuredOrigins = new Set(
   env.CORS_ORIGINS.split(",").map((origin) => origin.trim()).filter(Boolean),
 );
