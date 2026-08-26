@@ -10,6 +10,6 @@
     "experiments": { "typedRoutes": true },
     "ios": { "supportsTablet": true },
     "android": { "adaptiveIcon": { "backgroundColor": "#0b1220" } },
-    "web": { "bundler": "metro" }
+    "web": { "bundler": "metro", "output": "single" }
   }
 }
