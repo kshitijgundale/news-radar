@@ -4,7 +4,7 @@ import {
   type InitialStateOutput,
   type UpdateDecision,
 } from "@radar/contracts";
-import OpenAI from "openai";
+import { OpenAI } from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
 
 import { env } from "../lib/env.js";
