@@ -7,6 +7,7 @@
     }
   },
   "rewrites": [
+    { "source": "/", "destination": "/index.html" },
     { "source": "/new", "destination": "/index.html" },
     { "source": "/tracker/:path*", "destination": "/index.html" }
   ]
