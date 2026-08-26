@@ -1,0 +1,22 @@
+name: Run due Radar trackers
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: radar-due-trackers
+  cancel-in-progress: false
+
+jobs:
+  run-due:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger bounded scheduler batch
+        env:
+          RADAR_SCHEDULER_URL: ${{ secrets.RADAR_SCHEDULER_URL }}
+          RADAR_SCHEDULER_SECRET: ${{ secrets.RADAR_SCHEDULER_SECRET }}
+        run: |
+          curl --fail-with-body --silent --show-error \
+            --request POST \
+            --header "Authorization: Bearer ${RADAR_SCHEDULER_SECRET}" \
+            "${RADAR_SCHEDULER_URL%/}/internal/scheduler/run-due"

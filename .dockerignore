@@ -1,0 +1,5 @@
+node_modules
+apps/mobile/.expo
+.git
+.env
+npm-debug.log

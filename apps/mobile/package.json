@@ -1,0 +1,31 @@
+{
+  "name": "@radar/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "node --env-file-if-exists=../../.env ../../node_modules/expo/bin/cli start",
+    "android": "node --env-file-if-exists=../../.env ../../node_modules/expo/bin/cli start --android",
+    "ios": "node --env-file-if-exists=../../.env ../../node_modules/expo/bin/cli start --ios",
+    "web": "node --env-file-if-exists=../../.env ../../node_modules/expo/bin/cli start --web",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@radar/contracts": "*",
+    "expo": "^55.0.0",
+    "expo-constants": "~55.0.0",
+    "expo-linking": "~55.0.0",
+    "expo-router": "~55.0.0",
+    "expo-status-bar": "~55.0.0",
+    "react": "19.2.0",
+    "react-dom": "^19.2.0",
+    "react-native": "^0.83.10",
+    "react-native-safe-area-context": "~5.6.0",
+    "react-native-screens": "~4.23.0",
+    "react-native-web": "^0.21.2",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0"
+  }
+}
