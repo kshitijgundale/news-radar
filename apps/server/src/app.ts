@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 
@@ -8,10 +10,12 @@ import { env } from "./lib/env.js";
 
 export const app = new Hono();
 
-// Vercel's Hono dispatcher owns the bare root before static rewrites run.
-// Redirect it to the committed Expo entry document; all other UI routes are
-// handled by the SPA rewrites in vercel.json.
-app.get("/", (context) => context.redirect("/index.html"));
+// Vercel's Hono dispatcher owns the bare root before static rewrites run. Serve
+// the Expo entry document without changing the URL so Expo Router resolves `/`
+// instead of treating `/index.html` as an application route.
+app.get("/", async (context) => context.html(
+  await readFile(new URL("../../../public/index.html", import.meta.url), "utf8"),
+));
 
 const configuredOrigins = new Set(
   env.CORS_ORIGINS.split(",").map((origin) => origin.trim()).filter(Boolean),
