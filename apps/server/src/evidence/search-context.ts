@@ -1,4 +1,4 @@
-import { situationStateSchema, type SituationState } from "@radar/contracts";
+import { situationStateSchema, type SituationState } from "../contracts.js";
 import { z } from "zod";
 
 export const searchContextSchema = z

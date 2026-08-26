@@ -4,7 +4,7 @@ import {
   type InitialStateOutput,
   type StateFact,
   type UpdateDecision,
-} from "@radar/contracts";
+} from "../contracts.js";
 
 import type { EvaluationEvidence } from "../evidence/evidence-ingestion.js";
 import type {

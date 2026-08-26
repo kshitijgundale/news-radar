@@ -3,7 +3,7 @@ import {
   updateTrackerScheduleRequestSchema,
   trackerDetailResponseSchema,
   trackerListResponseSchema,
-} from "@radar/contracts";
+} from "../contracts.js";
 import { Hono, type Context } from "hono";
 
 import type { TrackerExecutor } from "../execution/tracker-executor.js";

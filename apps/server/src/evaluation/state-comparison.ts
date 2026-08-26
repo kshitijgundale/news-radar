@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 
-import { situationStateSchema, type SituationState } from "@radar/contracts";
+import { situationStateSchema, type SituationState } from "../contracts.js";
 
 export function normalizedStateFingerprint(state: SituationState): string {
   const parsed = situationStateSchema.parse(state);

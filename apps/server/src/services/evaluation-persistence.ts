@@ -4,8 +4,8 @@ import {
   updateDecisionSchema,
   type SituationState,
   type UpdateDecision,
-} from "@radar/contracts";
-import type { InitialStateOutput } from "@radar/contracts";
+} from "../contracts.js";
+import type { InitialStateOutput } from "../contracts.js";
 
 import { withTransaction } from "../db/transaction.js";
 import type { PoolLike, Queryable } from "../db/types.js";

@@ -3,7 +3,7 @@ import {
   updateDecisionSchema,
   type InitialStateOutput,
   type UpdateDecision,
-} from "@radar/contracts";
+} from "../contracts.js";
 import { OpenAI } from "openai";
 import { zodTextFormat } from "openai/helpers/zod";
 

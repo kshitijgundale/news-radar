@@ -6,7 +6,7 @@ import {
   type Evidence,
   type Tracker,
   type TrackerRun,
-} from "@radar/contracts";
+} from "../contracts.js";
 
 export interface TrackerRow {
   id: string;

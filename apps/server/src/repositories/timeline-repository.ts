@@ -1,4 +1,4 @@
-import { timelinePointSchema, type TimelinePointInput } from "@radar/contracts";
+import { timelinePointSchema, type TimelinePointInput } from "../contracts.js";
 
 import type { Queryable } from "../db/types.js";
 
